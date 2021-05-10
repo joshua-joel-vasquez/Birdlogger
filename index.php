@@ -1,11 +1,5 @@
-﻿<?php 
-  session_start(); 
-
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
+﻿<?php
+session_start();
 ?>
 <!DOCTYPE >
 <html >
@@ -20,6 +14,10 @@
 		<div id="mainpic">
         	<h1>BirdLogger<span class="off">Mountain</span></h1>
             <h2>The best bird database</h2>
+            <p>&nbsp;</p>
+            <?php  if (isset($_SESSION["loggedin"])) : ?>
+                <h3> <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h3>
+            <?php endif ?>
         </div>   
         
         <div id="menu">
@@ -29,12 +27,12 @@
                 <li class="menuitem"><a href="BirdTool.php">BirdTool</a></li>
                 <li class="menuitem"><a href="LogBook.php">LogBook</a></li>
                 <li class="menuitem"><a href="Contact.php">Contact</a></li>
-                <?php  if (!isset($_SESSION['username'])) : ?>
-  	                <li class="menuitem"><a href="php/login.php">Login</a></li>
+                <?php  if (!isset($_SESSION["loggedin"])) : ?>
+  	                <li class="menuitem"><a href="login.php">Login</a></li>
                 <?php endif ?>
 
-                <?php  if (isset($_SESSION['username'])) : ?>
-                    <li href="index.php?logout='1'" style="color: red;">logout</a> </li>
+                <?php  if (isset($_SESSION["loggedin"])) : ?>
+                    <li class="menuitem"> <a href="logout.php">logout</a> </li>
                 <?php endif ?>
             </ul>
         </div>

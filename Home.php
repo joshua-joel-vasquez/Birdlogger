@@ -1,4 +1,7 @@
-﻿<!DOCTYPE >
+﻿<?php
+session_start();
+?>
+<!DOCTYPE >
 <html >
 <head>
 
@@ -9,8 +12,12 @@
 <body>
 <div id="container">
 		<div id="mainpic">
-        	<h1>BirdLogger<span class="off">Mountain</span></h1>
+        	<h1>BirdLogger<span class="off"><?php echo htmlspecialchars($_SESSION["username"]); ?></span></h1>
             <h2>The best bird database</h2>
+            <p>&nbsp;</p>
+            <?php  if (isset($_SESSION["loggedin"])) : ?>
+                <h3> <?php echo htmlspecialchars($_SESSION["username"]); ?></h3>
+            <?php endif ?>
         </div>   
         
         <div id="menu">
@@ -20,8 +27,13 @@
                 <li class="menuitem"><a href="BirdTool.php">BirdTool</a></li>
                 <li class="menuitem"><a href="LogBook.php">LogBook</a></li>
                 <li class="menuitem"><a href="Contact.php">Contact</a></li>
-                <li class="menuitem"><a href="#">Login</a></li>
-                <li class="menuitem"><a href="#">Logout</a></li>
+                <?php  if (!isset($_SESSION["loggedin"])) : ?>
+  	                <li class="menuitem"><a href="login.php">Login</a></li>
+                <?php endif ?>
+
+                <?php  if (isset($_SESSION["loggedin"])) : ?>
+                    <li class="menuitem"> <a href="logout.php">logout</a> </li>
+                <?php endif ?>
             </ul>
         </div>
         
