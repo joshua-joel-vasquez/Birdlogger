@@ -1,7 +1,5 @@
 /* A Free Design by Bryant Smith (bryantsmith.com) */
 
-
-
 body {
 	margin: 0;
 	padding: 0;
@@ -28,7 +26,7 @@ body {
 
 #mainpic h1
 {
-	position:absolute;
+position:absolute;
 text-align:right;
 color:#F8FDEE;
 font-size:30px;
@@ -46,6 +44,7 @@ color:#E1E7F7;
 left:60px;
 top:50px;
 }
+
 #mainpic h3
 {
 font-size: 40px;
@@ -62,7 +61,7 @@ background-colorblack;
 background-image:url(images/main.jpg);
 background-repeat:no-repeat;
 width:900px;
-height:354px;	
+height:350px;	
 }
 
 
@@ -82,7 +81,7 @@ background-image:url(images/menu.png);
 background-repeat:no-repeat;
 width:940px;
 height:69px;
-float:left;
+float:center;
 clear:both;
 }
 
@@ -94,6 +93,15 @@ background-color:#FFF;
 padding-left:10px;
 padding-right:10px;
 padding-bottom:5px;
+}
+
+#scrollbox
+{
+width:600px;
+height:440px;
+border-style: solid;
+border-width: 2px;
+overflow:auto;
 }
 
 #footer
@@ -108,6 +116,7 @@ display:inline;
 text-align:center;
 font-size:12px;
 text-decoration:none;
+padding-left: 20px;
 color:#7198E1;
 }
 
@@ -115,7 +124,7 @@ color:#7198E1;
 #menu ul {
 	list-style: none;
 	padding: 0px;
-	margin-left:auto;
+	margin-left: auto;
 	width:900px;
 }
 

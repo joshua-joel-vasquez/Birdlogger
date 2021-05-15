@@ -12,19 +12,17 @@ session_start();
 <body>
 <div id="container">
 		<div id="mainpic">
-        	<h1>BirdLogger<span class="off">Mountain</span></h1>
+        	<h1>BirdLogger</h1>
             <h2>The best bird database</h2>
-            <p>&nbsp;</p>
             <?php  if (isset($_SESSION["loggedin"])) : ?>
                 <h3> <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h3>
             <?php endif ?>
-        </div>   
+        </div>
         
         <div id="menu">
             <ul>
                 <li class="menuitem"><a href="Home.php">Home</a></li>
-                <li class="menuitem"><a href="About.php">About</a></li>
-                <li class="menuitem"><a href="BirdTool.php">BirdTool</a></li>
+                <li class="menuitem"><a href="BirdTool.php">Search</a></li>
                 <li class="menuitem"><a href="LogBook.php">LogBook</a></li>
                 <li class="menuitem"><a href="Contact.php">Contact</a></li>
                 <?php  if (!isset($_SESSION["loggedin"])) : ?>
@@ -32,32 +30,23 @@ session_start();
                 <?php endif ?>
 
                 <?php  if (isset($_SESSION["loggedin"])) : ?>
-                    <li class="menuitem"> <a href="logout.php">logout</a> </li>
+                    <li class="menuitem"> <a href="logout.php">Logout</a> </li>
                 <?php endif ?>
             </ul>
         </div>
         
 		<div id="content">
-        	<h2>You may use this template in any manner you like. All I ask is that you leave the link back to my site at the bottom of the page. </h2>
+        	<h2>Welcome to The BirdLogger Website!</h2>
+            <h3>Powered by Green Kingfisher Inc.</h3>
         	<p>&nbsp;</p>
-           	<p>&nbsp;</p>
-       	  <h3>Template Notes</h3>
-        	<p>The main image can be changed by either replacing the current image with another one of the same size (900x402), or using a new one of what ever dimensions you'd like.  If you choose the latter, you must open up style.css and change the dimensions of #mainpic, as well as the file name if that is different. If you would like to move the heading around in the above image, find &quot;#mainpic h1&quot; in style.css and modify it's &quot;left&quot; and &quot;top&quot; properties, this is also true for the h2 tag.</p>
+       	        <h3>How to Use</h3>
+        	<p>Our site is an all-in-one tool to identify, and log birds you find in the wild! With a database of nearly one thousand North American birds, the possibilities for birding enthusiasts are endless. Search for birds by name on our Search page, and discover all kinds of neat information about them like their habitat and feeding habits. Even listen to their unique bird calls!</p>
         	<p>&nbsp;</p>
-<h3>More information</h3>
-        	<p>I decided to leave the content portion open for the templates users to do as they wish with a blank canvas. I don't like to restrict my users too much, and for this reason I leave the defining of any content related styles to you.</p>
-        	<p>&nbsp;</p>
-        	<h3>Template Notes</h3>
-            <p>The main image can be changed by either replacing the current image with another one of the same size (900x402), or using a new one of what ever dimensions you'd like.  If you choose the latter, you must open up style.css and change the dimensions of #mainpic, as well as the file name if that is different. If you would like to move the heading around in the above image, find &quot;#mainpic h1&quot; in style.css and modify it's &quot;left&quot; and &quot;top&quot; properties, this is also true for the h2 tag.</p>
+                <h3>Your Own Account</h3>
+        	<p>Create an account and log-in to have access to your very own logbook, where you can add sightings of birds you spot in the wild. Keep tally of how many birds of each species you see in your birding ventures.</p>
             <p>&nbsp;</p>
-        	<h3>More information</h3>
-            <p>I decided to leave the content portion open for the templates users to do as they wish with a blank canvas. I don't like to restrict my users too much, and for this reason I leave the defining of any content related styles to you.</p>
             <p>&nbsp;</p>
-        	<p>&nbsp;</p>
-        	<p>&nbsp;</p>
             <p>&nbsp;</p>
-            
-            <div id="footer"><h3>Bird database</div>
       </div>
    </div>
 </body>

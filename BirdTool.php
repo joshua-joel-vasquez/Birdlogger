@@ -10,32 +10,31 @@ session_start();
 </head>
 
 <body>
-    <div id="container">
-		<div id="mainpic">
-        	<h1>BirdLogger<span class="off">Mountain</span></h1>
+<div id="container">
+        <div id="mainpic">
+            <h1>BirdLogger</h1>
             <h2>The best bird database</h2>
-            <p>&nbsp;</p>
             <?php  if (isset($_SESSION["loggedin"])) : ?>
                 <h3> <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h3>
             <?php endif ?>
-        </div>   
+        </div>
         
         <div id="menu">
             <ul>
                 <li class="menuitem"><a href="Home.php">Home</a></li>
-                <li class="menuitem"><a href="About.php">About</a></li>
-                <li class="menuitem"><a href="BirdTool.php">BirdTool</a></li>
+                <li class="menuitem"><a href="BirdTool.php">Search</a></li>
                 <li class="menuitem"><a href="LogBook.php">LogBook</a></li>
                 <li class="menuitem"><a href="Contact.php">Contact</a></li>
                 <?php  if (!isset($_SESSION["loggedin"])) : ?>
-  	                <li class="menuitem"><a href="login.php">Login</a></li>
+                    <li class="menuitem"><a href="login.php">Login</a></li>
                 <?php endif ?>
 
                 <?php  if (isset($_SESSION["loggedin"])) : ?>
-                    <li class="menuitem"> <a href="logout.php">logout</a> </li>
+                    <li class="menuitem"> <a href="logout.php">Logout</a> </li>
                 <?php endif ?>
             </ul>
         </div>
+        
         
 		<div id="content">
         
@@ -47,7 +46,7 @@ session_start();
                     </tr>
                 </table>
             </form>
-
+            <div id="scrollbox">
             <?php
                 $search_value=$_POST["search"];
                 $con=new mysqli("localhost", "phpmyadmin", "Depaul123", "phpmyadmin");
@@ -63,29 +62,14 @@ session_start();
                         while($row=$res->fetch_assoc())
                         {
                             echo '<tr>
-                                            <td><h3><a href="birdpage.php?bird='.$row['BIRDID'].'">'.$row['NAME'].'</a></h3></td>
-                                    </tr>
-                                    <tr>
-                                            <td>'.$row['OVERVIEW'].'</td>
-                                
+                                            <td><h3 style="padding-left:10px;"><a href="birdpage.php?bird='.$row['BIRDID'].'">'.$row['NAME'].'</a></h3></td>
                                     </tr>';
-                            
-
-
                         }       
 
                     }
             ?>
-
+            </div>
             
-            <p>&nbsp;</p>
-        	<p>&nbsp;</p>
-        	<p>&nbsp;</p>
-            <p>&nbsp;</p>
-            
-                
-            <div id="footer"><h3>Bird database</div>
-
             <p>&nbsp;</p>
 
         </div>

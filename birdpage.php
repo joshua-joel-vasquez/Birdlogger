@@ -1,8 +1,5 @@
 ﻿<?php
 session_start();
-
-
-
 ?>
 <!DOCTYPE >
 <html >
@@ -14,31 +11,30 @@ session_start();
 
 <body>
 <div id="container">
-		<div id="mainpic">
-        	<h1>BirdLogger<span class="off"></span></h1>
+        <div id="mainpic">
+            <h1>BirdLogger</h1>
             <h2>The best bird database</h2>
-            <p>&nbsp;</p>
             <?php  if (isset($_SESSION["loggedin"])) : ?>
                 <h3> <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h3>
             <?php endif ?>
-        </div>   
+        </div>
         
         <div id="menu">
             <ul>
                 <li class="menuitem"><a href="Home.php">Home</a></li>
-                <li class="menuitem"><a href="About.php">About</a></li>
-                <li class="menuitem"><a href="BirdTool.php">BirdTool</a></li>
+                <li class="menuitem"><a href="BirdTool.php">Search</a></li>
                 <li class="menuitem"><a href="LogBook.php">LogBook</a></li>
                 <li class="menuitem"><a href="Contact.php">Contact</a></li>
                 <?php  if (!isset($_SESSION["loggedin"])) : ?>
-  	                <li class="menuitem"><a href="login.php">Login</a></li>
+                    <li class="menuitem"><a href="login.php">Login</a></li>
                 <?php endif ?>
 
                 <?php  if (isset($_SESSION["loggedin"])) : ?>
-                    <li class="menuitem"> <a href="logout.php">logout</a> </li>
+                    <li class="menuitem"> <a href="logout.php">Logout</a> </li>
                 <?php endif ?>
             </ul>
         </div>
+        
         
 		<div id="content">
         
@@ -97,15 +93,15 @@ session_start();
                 
                         </tr>
                         <tr>
-                            <h3>Habitat</h3> <td>'.$row['HABITAT'].'</td> <p>&nbsp;</p>
+                            <h3>Range and Habitat</h3> <td>'.$row['HABITAT'].'</td> <p>&nbsp;</p>
                 
                         </tr>
                         <tr>
-                            <h3>Feed</h3>  <td>'.$row['FEED'].'</td> <p>&nbsp;</p>
+                            <h3>Foraging and Feeding</h3>  <td>'.$row['FEED'].'</td> <p>&nbsp;</p>
                 
                         </tr>
                         <tr>
-                            <h3>Sound</h3> <td>'.$row['SOUND'].'</td> <p>&nbsp;</p>
+                            <h3>Vocalization</h3> <td>'.$row['SOUND'].'</td> <p>&nbsp;</p>
                 
                         </tr>
                         <tr>
@@ -143,15 +139,10 @@ session_start();
                 mysqli_close($conn);
             ?>
 
-            
-        
-            
-
         	<p>&nbsp;</p>
         	<p>&nbsp;</p>
             <p>&nbsp;</p>
             
-            <div id="footer"><h3>Bird database</div>
       </div>
    </div>
 </body>
