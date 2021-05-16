@@ -62,33 +62,28 @@ session_start();
                 // output data of each row
                     while($row = mysqli_fetch_assoc($result)) 
                     {
-                        echo '<tr>
-                        <td><h1>'.$row['NAME'].'</h1></td>
+                        if (isset($_SESSION["loggedin"]))
+                        {
+                            echo '
+                                    <button type="button">Add Bird to Logbook</button> 
+                                    <button type="button">Remove Bird</button>
+                                ';
+                        }
+
+                        echo '</tr>
+                        <td>
+                            <img class="a" src="images\Birds\pictures\_'.$row['BIRDID'].'.jpg" alt="'.$row['NAME'].'" width="576" height="700"/>
+                        
+                        </td>
+                        <tr>
+                        <tr>
+                        <td><h1>'.$row['NAME'].'</h1>
+                        </td>
                         </tr>
                         <tr>
                             <td>'.$row['SCINAME'].'</td> <p>&nbsp;</p>
                 
-                        </tr>
-                        <td>
-                            <div class="slider">
-                                <span id="slide-1"></span>
-                                <span id="slide-2"></span>
-                                <span id="slide-3"></span>
-
-                                <div class="image-container">
-                                    <img src="images\Birds\pictures\0'.$row['PIC'].'" alt="Bird 1" class="slide" width="500" height="300" />
-                                    <img src="images\Birds\pictures\1'.$row['PIC'].'" alt="Bird 1" class="slide" width="500" height="300" />
-                                    <img src="images\Birds\pictures\2'.$row['PIC'].'" alt="Bird 1" class="slide" width="500" height="300" />
-                                </div>
-
-                                <div class="buttons">
-                                    <a href="#slide-1"></a>
-                                    <a href="#slide-2"></a>
-                                    <a href="#slide-3"></a>
-                                </div>
-                            </div>
-                        </td>
-                        <tr>
+                        
                             <h3>Overview</h3> <td>'.$row['OVERVIEW'].'</td> <p>&nbsp;</p>
                 
                         </tr>
@@ -113,22 +108,7 @@ session_start();
                            
                 
                         </tr>';
-
-                        if (isset($_SESSION["loggedin"]))
-                        {
-                            echo '
-                            <tr>
-                                <td> <h3>Bird LogBook </h3> </td>
-                    
-                            </tr>
-                            <tr>
-                                <td> 
-                                    <button type="button">Add Bird</button> 
-                                    <button type="button">Delete Bird</button>
-                                </td>
-                    
-                            </tr>';
-                        }
+                        
                     }
                 } 
                 else 
