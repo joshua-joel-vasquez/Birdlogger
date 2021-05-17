@@ -17,8 +17,8 @@ if (!isset($_SESSION["loggedin"]))
 
 <body>
 <div id="container">
-		<div id="mainpic">
-        	<h1>BirdLogger</h1>
+        <div id="mainpic">
+            <h1>BirdLogger</h1>
             <h2>The best bird database</h2>
             <p>&nbsp;</p>
             <?php  if (isset($_SESSION["loggedin"])) : ?>
@@ -42,9 +42,9 @@ if (!isset($_SESSION["loggedin"]))
             </ul>
         </div>
         
-		<div id="content">
+        <div id="content">
             <div id="logbook">
-        	<?php
+            <?php
 
                 $UserID =  $_SESSION["id"];
 
@@ -57,28 +57,27 @@ if (!isset($_SESSION["loggedin"]))
                 $sql = "SELECT * FROM Logbook WHERE UserID ='$UserID'";
                 $result = mysqli_query($conn, $sql);
 
+                echo '<h1> Logbook </h1><ul>';
+
                 if(mysqli_num_rows($result) > 0){
-
-                    echo '<h1> Logbook </h1><ul>';
-
                 
                     while($row = mysqli_fetch_assoc($result)){
                         echo '
                         <li>
                             <span class="log"><a href="birdpage.php?bird='.$row['BirdID'].'">'.$row['BirdName'].'</a></span>
                             sightings: '.$row['CountSeen'].'
-                            <a href="addBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Add Bird</a> &emsp;
-                            <a href="deleteBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Remove Bird</a>
+                            <span class="log"></span><a href="addBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Add</a>
+                             <a href="deleteBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Remove</a>
                         </li>';
                     }
 
-                    echo '</ul>';
                 }
                 else{
                 echo "0 results";
                 
                 }
 
+                echo '</ul>';
                 
                 // Close connection
                 mysqli_close($conn);
