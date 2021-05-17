@@ -65,7 +65,7 @@ if (!isset($_SESSION["loggedin"]))
                     while($row = mysqli_fetch_assoc($result)){
                         echo '
                         <li>
-                            <span class="log">'.$row['BirdName'].'</span>
+                            <span class="log"><a href="birdpage.php?bird='.$row['BirdID'].'">'.$row['BirdName'].'</a></span>
                             sightings: '.$row['CountSeen'].'
                             <a href="addBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Add Bird</a> &emsp;
                             <a href="deleteBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Remove Bird</a>
@@ -85,6 +85,7 @@ if (!isset($_SESSION["loggedin"]))
             
             ?>
             </div>
+            &nbsp;
         </div>
     </div>
 </body>
