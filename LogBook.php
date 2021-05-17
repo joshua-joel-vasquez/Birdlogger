@@ -43,6 +43,7 @@ if (!isset($_SESSION["loggedin"]))
         </div>
         
 		<div id="content">
+            <div id="logbook">
         	<?php
 
                 $UserID =  $_SESSION["id"];
@@ -58,17 +59,20 @@ if (!isset($_SESSION["loggedin"]))
 
                 if(mysqli_num_rows($result) > 0){
 
-                    echo "
-                            <h2> BirdName  &emsp; &emsp; Count Seen </h2>
-                            ";
+                    echo '<h1> Logbook </h1><ul>';
 
                 
                     while($row = mysqli_fetch_assoc($result)){
-                        echo "
-                            <h2>" . $row['BirdName'] . " &emsp; &emsp;" . $row['CountSeen'] . " </h2>
-                            ";
-
+                        echo '
+                        <li>
+                            <span class="log">'.$row['BirdName'].'</span>
+                            sightings: '.$row['CountSeen'].'
+                            <a href="addBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Add Bird</a> &emsp;
+                            <a href="deleteBird.php?birdID='.$row['BirdID'].'&bird='.$row['BirdName'].'">Remove Bird</a>
+                        </li>';
                     }
+
+                    echo '</ul>';
                 }
                 else{
                 echo "0 results";
@@ -79,12 +83,9 @@ if (!isset($_SESSION["loggedin"]))
                 // Close connection
                 mysqli_close($conn);
             
-            
-            
             ?>
-
-            <div id="footer"><h3></div>
-      </div>
-   </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
