@@ -40,7 +40,7 @@ session_start();
         
 
             <?php
-                $bird= $_GET['bird'];
+                $birdid= $_GET['bird'];
                 $servername = "localhost";
                 $username = "phpmyadmin";
                 $password = "Depaul123";
@@ -54,7 +54,7 @@ session_start();
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "select * FROM BIRDS where BIRDID ='$bird'";
+                $sql = "select * FROM BIRDS where BIRDID ='$birdid'";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) 
@@ -65,8 +65,8 @@ session_start();
                         if (isset($_SESSION["loggedin"]))
                         {
                             echo '
-                                    <button type="button">Add Bird to Logbook</button> 
-                                    <button type="button">Remove Bird</button>
+                                     <h3><a href="addBird.php?birdID='.$row['BIRDID'].'&bird='.$row['NAME'].'">Add Bird to Logbook</a> &emsp; &emsp;
+                                     <a href="deleteBird.php?birdID='.$row['BIRDID'].'&bird='.$row['NAME'].'">Remove Bird</a></h3>
                                 ';
                         }
 
@@ -102,7 +102,7 @@ session_start();
                         <tr>
                         <audio controls>
                             
-                            <source src="images\Birds\audio\_'.$row['AUDIO'].'" type="audio/mpeg">
+                            <source src="images\Birds\audio\_'.$row['BIRDID'].'.mp3" type="audio/mpeg">
                              Your browser does not support the audio element. 
                         </audio>
                            
