@@ -66,7 +66,7 @@ session_start();
                         {
                             echo '
                                      <h3><a href="addBird.php?birdID='.$row['BIRDID'].'&bird='.$row['NAME'].'">Add Bird to Logbook</a> &emsp; &emsp;
-                                     <a href="deleteBird.php?birdID='.$row['BIRDID'].'&bird='.$row['NAME'].'">Remove Bird</a></h3>
+                                     </h3>
                                 ';
                         }
 
