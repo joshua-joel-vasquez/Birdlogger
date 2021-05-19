@@ -58,7 +58,7 @@ session_start();
                         $sql="select * FROM BIRDS where NAME like '%$search_value%'
                         OR OVERVIEW like '%$search_value%'
                         OR HABITAT like '%$search_value%'
-                        OR FEED like '%$search_value%'
+                        
                         ";
 
                         $res=$con->query($sql);
